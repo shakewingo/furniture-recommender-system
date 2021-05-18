@@ -1,0 +1,11 @@
+name: furniture-recommender
+dependencies:
+  - pandas==1.2.4
+  - numpy==1.20.1
+  - jupyterlab=1.2.6
+  - urllib3=1.26.4
+  - python=3.9.4
+  - beautifulsoup4=4.9.3
+  - selenium=3.141.0
+  - pip:
+    - python-dotenv==0.17.1

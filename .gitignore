@@ -1,0 +1,4 @@
+*.docx
+*.pptx
+Code/.ipynb_checkpoints/*
+.idea
