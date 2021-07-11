@@ -1,11 +1,40 @@
+# For tensorflow on Mac M1 solution: refer https://github.com/apple/tensorflow_macos/issues/153
+# downgrade pillow to 8.2.0 via conda, downgrade h5py to 2.10.0 via pip
 name: furniture-recommender
+channels:
+  - conda-forge
+  - nodefaults
 dependencies:
-  - pandas==1.2.4
-  - numpy==1.20.1
-  - jupyterlab=1.2.6
-  - urllib3=1.26.4
-  - python=3.9.4
+  - grpcio
+  - h5py
+  - ipython
+  - numpy
+  - pip=20.2.4
+  - python=3.8
+  - scipy
+  - termcolor
+  - typeguard
+  - wheel
+  - absl-py
+  - astunparse
+  - python-flatbuffers
+  - gast
+  - google-pasta
+  - keras-preprocessing
+  - opt_einsum
+  - protobuf
+  - tensorboard
+  - tensorflow-estimator
+  - termcolor
+  - typing_extensions
+  - wrapt
+  - pandas==1.3.0
+  - jupyterlab=3.0.16
   - beautifulsoup4=4.9.3
-  - selenium=3.141.0
+  - nltk=3.6.2
+  - scikit-learn=0.24.2
+  - matplotlib=3.4.2
   - pip:
-    - python-dotenv==0.17.1
+      - python-dotenv==0.18.0
+      - selenium==3.141.0
+      - lda==2.0.0

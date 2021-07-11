@@ -1,4 +1,11 @@
 *.docx
 *.pptx
-Code/.ipynb_checkpoints/*
+*/.ipynb_checkpoints
+*__pycache__
 .idea
+*.pdf
+*.csv
+*.json
+Meta/*
+Meta_org/*
+
