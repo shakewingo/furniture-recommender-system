@@ -6,6 +6,6 @@
 *.pdf
 *.csv
 *.json
-Meta/*
+Meta.nosync/*
 Meta_org/*
 
