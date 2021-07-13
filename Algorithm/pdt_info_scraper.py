@@ -75,7 +75,7 @@ def main():
         else:
             for i in range(len(pdt_links_per_ctg)):
                 try:
-                    link = pdt_links_per_ctg[i]
+                    link = pdt_links_per_ctg[i]  # if error, try 'https://' + pdt_links_per_ctg[i] instead
                     logging.info('Link is {}'.format(link))
                     page = requests.get(link)
                     if page.status_code != 404:

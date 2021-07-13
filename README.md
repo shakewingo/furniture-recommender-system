@@ -1,6 +1,7 @@
 # Living Room Furniture Recommender System
-An end-to-end development of living room furniture recommender system based on multivariant LDA. The project contains three parts, web scraping from 
-[furniture.ca](https://www.furniture.ca)
+An end-to-end development of living room furniture recommender system. The repo contains 
+three parts: web scraping from [furniture.ca](https://www.furniture.ca), recommender system algorithm based on 
+multivariant LDA, a local web application via flask
 
 ## Environment Setup
 The project is written in macOS arm64, for virtual env setup and tensorflow installed on Mac M1: refer
@@ -18,8 +19,12 @@ downgrade pillow `conda install pillow=8.2.0`, downgrade h5py `pip install h5py=
    Expect to have Furniture.csv generated in root path.
 * After step 1, you can run `python Algorithm/test.py` to count categories.
 
-Note that, the above steps could really take 1-2 whole days to finish. The original meta data run on Jun 2020 has XXX 
-product images and XXX product records in csv. You can obtain it by running it by yourself or contact me 
+Note that, the above steps could really take 1-2 whole days to finish. The original meta data run on Jun 2020 has 2953 
+product images and 2904 product records in csv. You can obtain it by running on your own or contact me 
 [yaoyingshakewin@gmail.com](mailto:yaoyingshakewin@gmail.com) for a cleaned up version in order to replicate the rest study.
 
 ## Multivariant LDA Recommender Algorithm
+
+!#TODO: solve .env .flaskenv conflicts
+
+!#TODO: can't run web

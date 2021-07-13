@@ -36,7 +36,7 @@ def main():
         # SOLUTION: Change while i <= iters to run each request for multiple times
         i = 0  # set # of trials
         offset = item_per_page  # based on certain website format
-        while i <= 2: #10
+        while i <= 10:
             logging.info('Start iteration {}'.format(i))
             logging.info('Start offset {}'.format(offset))
             # TODO: selenium depreation warning
