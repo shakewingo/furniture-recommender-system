@@ -13,8 +13,6 @@ from random import randint
 from pathlib import Path
 from selenium import webdriver
 from bs4 import BeautifulSoup
-from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv())
 logging.basicConfig(format='%(asctime)s - %(filename)s - %(message)s', level=logging.INFO)
 
 ROOT = os.environ.get("ROOT")

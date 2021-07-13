@@ -1,12 +1,12 @@
-*.docx
-*.pptx
 */.ipynb_checkpoints
 *__pycache__
 .idea
 *.pdf
 *.csv
+*.docx
+*.pptx
 *.json
 Meta.nosync/*
 Meta_org/*
 Paper/*
-
+ghostdriver.log

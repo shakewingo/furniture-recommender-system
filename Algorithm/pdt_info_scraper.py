@@ -18,11 +18,7 @@ import certifi
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
-from dotenv import load_dotenv, find_dotenv
-import tensorflow
 from pdt_link_scraper import categories
-
-load_dotenv(find_dotenv())
 logging.basicConfig(format='%(asctime)s - %(filename)s - %(message)s', level=logging.INFO)
 
 ROOT = os.environ.get("ROOT")
