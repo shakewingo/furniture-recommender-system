@@ -20,13 +20,12 @@ from requests.packages.urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv, find_dotenv
 import tensorflow
+from pdt_link_scraper import categories
 
 load_dotenv(find_dotenv())
 logging.basicConfig(format='%(asctime)s - %(filename)s - %(message)s', level=logging.INFO)
-from pdt_link_scraper import categories
 
 ROOT = os.environ.get("ROOT")
-code_folder = Path(ROOT, 'Code')
 meta_folder = Path(ROOT, 'Meta_org')
 delays = [7, 4, 6, 2, 10, 19]
 
@@ -58,7 +57,7 @@ delays = [7, 4, 6, 2, 10, 19]
 #
 #     }
 def main():
-    with open(Path(code_folder, 'product_links.json')) as link_file:
+    with open(Path(ROOT, 'product_links.json')) as link_file:
         gt_pdts = json.load(link_file)
 
     if not os.path.exists(meta_folder):
@@ -76,7 +75,7 @@ def main():
         else:
             for i in range(len(pdt_links_per_ctg)):
                 try:
-                    link = 'https://' + pdt_links_per_ctg[i]
+                    link = pdt_links_per_ctg[i]
                     logging.info('Link is {}'.format(link))
                     page = requests.get(link)
                     if page.status_code != 404:
@@ -89,16 +88,16 @@ def main():
                         for variant in pdt_meta:
                             pdt_info['category'] = pdt_ctg
                             info = variant.get('content')
-                            type = variant.get('property')
-                            if type == 'og:image' and pdt_info['image'] is None:  # only select the 1st front image
+                            typ = variant.get('property')
+                            if typ == 'og:image' and pdt_info['image'] is None:  # only select the 1st front image
                                 pdt_info['image'] = info
-                            if type == 'og:price:amount':
+                            if typ == 'og:price:amount':
                                 pdt_info['price'] = re.sub(r'[^\w\s]', '', info, re.UNICODE)  # encode is required
-                            if type == 'og:description':
+                            if typ == 'og:description':
                                 pdt_info['desc'] = re.sub(r'[^\w\s]', '', info, re.UNICODE)
-                            if type == 'og:title':
+                            if typ == 'og:title':
                                 pdt_info['name'] = re.sub(r'[^\w\s]', '', info, re.UNICODE)
-                            if type == 'og:url':
+                            if typ == 'og:url':
                                 pdt_info['url'] = info
 
                         details = []
@@ -114,7 +113,7 @@ def main():
                             if not os.path.exists(sub_folder):
                                 os.makedirs(sub_folder)
                         except OSError:
-                            logging.error('Creating directory. ' + sub_folder)
+                            logging.error('Creating directory. ' + str(sub_folder))
 
                         try:
                             urlretrieve(pdt_info['image'], Path(sub_folder, pdt_info['name'] + '.jpg'))
@@ -134,7 +133,6 @@ def main():
 
                     delay = np.random.choice(delays)
                     time.sleep(delay)
-                    end_time = time.time()
 
                 except Exception as e:
                     logging.error(e)
@@ -142,6 +140,7 @@ def main():
 
         delay = np.random.choice(delays)
         time.sleep(delay)
+        end_time = time.time()
         logging.info('Finish scraping info for category {}'.format(j))
         logging.info('Elapsed time is: ' + str(round((end_time - start_time) / 60, 2)) + ' minus')
 

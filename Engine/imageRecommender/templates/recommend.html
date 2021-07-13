@@ -7,7 +7,7 @@
                 <img src="{{ url_for('static', filename='site_imgs/images/') }}{{inputImage}}" alt="{{similarImages[0]}}" id="showSimilarInPopup">
             </div>
             <div class="galleryContent">
-                <h3> RECOMMEND FURNITURE</h3>
+                <h3> RECOMMENDED FURNITURE</h3>
                 {% for image in similarImages %}
                 <div class="item">
                         <img id="popupImage{{loop.index}}" onclick="imageClicked(this.id)" src="{{ url_for('static', filename='site_imgs/images/') }}{{image}}" alt="{{image}}" id="showSimilarInPopup">
