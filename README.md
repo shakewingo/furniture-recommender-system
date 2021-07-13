@@ -1,7 +1,6 @@
 # Living Room Furniture Recommender System
-An end-to-end development of living room furniture recommender system. The repo contains 
-three parts: web scraping from [furniture.ca](https://www.furniture.ca), recommender system algorithm based on 
-multivariant LDA and a local web application via flask
+This is an end-to-end development of living room furniture recommender system. The repo contains 
+three parts: web scraping from [furniture.ca](https://www.furniture.ca), recommender system algorithm and a local web application via flask.
 
 ## Environment Setup
 The project is written in macOS arm64, for virtual env setup and tensorflow installed on Mac M1: please carefully refer
@@ -62,3 +61,8 @@ You should be able to find link such as http://127.0.0.1:5000/ to open. And Bang
 Note that, the web template is forked from https://github.com/MathMagicx/MediumFlaskImageRecommender
 
 ## Recommender System Demo
+
+
+https://user-images.githubusercontent.com/42901821/125501142-1cfcd2b3-be69-4e9f-a97e-3fad8cbc35bd.mp4
+
+
